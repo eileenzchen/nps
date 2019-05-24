@@ -1,0 +1,19 @@
+<div id="top-bar">
+  <div class="row">
+    <div class="col s6 push-s1 valign-wrapper">
+      <%= link_to image_tag('logo.png', :width => "40"), home_path  %>
+      <%= link_to 'National Park Services', home_path, :class => "text-home"  %>
+    </div>
+
+    <div style="float:right" class="col s4 pull-s1">
+      <%= form_with url: search_path, method: :get, class: "form-inline", id: "search" do %>
+
+        <%= text_field_tag 'query', '', placeholder: "keyword search ..." %>
+      
+      <% end %>
+    </div>
+    
+    </hr>
+
+  </div>
+</div>
