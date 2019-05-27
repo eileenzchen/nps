@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require_self
 //= require_tree .
 
 
@@ -28,5 +29,17 @@ $(window).bind("load", function () {
       footer.css({
           'margin-top': height + 'px'
       });
+  }
+});
+
+// Search submit on enter
+$(document).ready(function() {
+  function submitForm() {
+    document.getElementById("search").submit();
+  }
+  document.onkeydown = function () {
+    if (window.event.keyCode == '13') {
+        submitForm();
+    }
   }
 });

@@ -6,8 +6,11 @@ Rails.application.routes.draw do
   get 'home' => 'home#home', as: :home
   get 'about' => 'home#about', as: :about
   get 'contact' => 'home#contact', as: :contact
-  get 'home/search', to: 'home#search', as: :search
-  
+  get 'search' => 'home#search', as: :search
+
+  # set route for a specific park
+  get 'parks', to: 'parks#show', as: :parks
+
   # Set the root url
   root :to => 'home#home'
 end

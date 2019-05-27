@@ -1,16 +1,25 @@
-<h5>Search result for term <em>'<%= @query %>'</em> resulted in <%= pluralize(@total_hits, 'hit') %></h5>
+</br>
+<p style="font-size: 20px">Search result for term <em>'<%= @query %>'</em> resulted in <%= pluralize(@total_hits, 'hit') %></p>
 <p class="supertiny">&nbsp;</p>
 
-<% unless @parks.empty? %>
-  <p><em><strong>Parks matching term '<%= @query %>'</strong></em></p>
-  <% for park in @parks do %>
-    <%park%>
-    # <div class="row card">
-
-    #   <%=# link_to park, customer_path(customer) %>
-    # </div>
+<% unless @parks["total"] == '0' %>
+  <p class="search-output-category"><strong>PARKS</strong></p>
+  <% for park in @parks["data"] do %>
+    <div class="row">
+      <div class="card col s8">
+        <div class="card-content">
+          <% @park_code = park["parkCode"] %>
+          
+          <h5><%= link_to park["fullName"], parks_path(park_code: @park_code), class: "search-output-link"%></h5>
+          
+          <div id="search-output-states"><%= park["states"] %></div></br>
+          <%= park["description"]%>        
+        </div>
+      </div>
+    </div>
   <% end %>
 
   <p class="smtext">&nbsp;</p>
 <% end %>
+
 

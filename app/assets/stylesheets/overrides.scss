@@ -32,16 +32,18 @@ p {
 
 .text-home {
   color: #ffffff;
+  margin-top: -5px;
   padding-left: 20px;
   font-size: 30px;
 }
 
-nav .text-home:hover {
-
+.text-home:hover {
   color: #ffffff;
-  
 }
 
+.text-home:visited {
+  color: #ffffff;
+}
 
 
 /****HOME PAGE****/
@@ -50,13 +52,15 @@ nav .text-home:hover {
 }
 
 .home-img {
-  filter: brightness(70%);
+  // filter: brightness(70%);
+  
 }
 
 .full-width {
-	margin-left: -50%;
-	margin-right: -50%;
-	position: relative;
+
+	margin-left: -11.3%;
+	// margin-right: -16.66667%;
+  position: relative;
   width: 100vw;
 }
 
@@ -130,6 +134,33 @@ nav .text-home:hover {
 
 #footer a.active{
   color: 	#006400;
+}
+
+/****SEARCH OUTPUT****/
+#search-output-states {
+  color: #757575;
+}
+
+.search-output-category {
+  color: #006400;
+  font-size: 22px;
+}
+
+.search-input {
+  color: #fff!important;
+}
+
+.search-output-link {
+  color: #006400;
+}
+
+.search-output-link:hover {
+  color: #006400;
+  text-decoration: underline;
+}
+
+.search-output-link:visited {
+  color: #333333;
 }
 
 /****TABLES****/
@@ -215,15 +246,13 @@ a:hover {
 
 /****CARDS****/
 .card {
-  margin-top: 25px;
+  margin-top: 0px;
 }
 
 /*****FORM ACTIONS****/
 .form-actions {
   margin-bottom: 10px;
 }
-
-
 
 /****BUTTONS****/
 .btn {
