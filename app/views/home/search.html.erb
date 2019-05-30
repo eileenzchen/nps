@@ -1,9 +1,11 @@
 </br>
-<p style="font-size: 20px">Search result for term <em>'<%= @query %>'</em> resulted in <%= pluralize(@total_hits, 'hit') %></p>
+<p style="font-size: 20px">Search result for term <em>'<%= @query %>'</em> resulted in <%= pluralize(@total_hits, 'result') %></p>
 <p class="supertiny">&nbsp;</p>
 
 <% unless @parks["total"] == '0' %>
-  <p class="search-output-category"><strong>PARKS</strong></p>
+  <strong class="search-output-category">PARKS</strong>
+  <%= "(#{@parks["total"]} results)" %>
+  </br></br>
   <% for park in @parks["data"] do %>
     <div class="row">
       <div class="card col s8">

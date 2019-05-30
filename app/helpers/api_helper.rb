@@ -1,7 +1,7 @@
 require "json"
 require "http"
 
-module HomeHelper
+module ApiHelper
 
   # example get request url
   # https://developer.nps.gov/api/v1/parks?parkCode=acad&api_key=AfKfqBbdNqy99Ftuu7J732X9aeTcba8AEQGPyzKJ

@@ -6,8 +6,13 @@ html {
   width: 80%;
 }
 
+.body {
+  width: 70%;
+  align-content: center;
+}
+
 p {
-  font-size: 16px;
+  font-size: 12px;
 }
 
 .link {
@@ -20,6 +25,11 @@ p {
   position: relative;
   object-fit: cover; /* Do not scale the image */
 
+}
+
+#divider {
+  margin-top: 5px;
+  margin-bottom: 15px;
 }
 /****TOP BAR****/
 #top-bar {
@@ -161,6 +171,75 @@ p {
 
 .search-output-link:visited {
   color: #333333;
+}
+
+/****PARKS****/ 
+
+.alert-closure {
+  color: #ff6600;
+  font-size: 20px;
+}
+
+.alert-danger {
+  color: #c70303;
+  font-size: 20px;
+}
+
+.alert-caution {
+  color: orange;
+  font-size: 20px;
+}
+
+.alert-info {
+  color: blue;
+  font-size: 20px;
+}
+
+.label-green {
+  color: white;
+  padding: 8px;
+  background-color: #006400;
+  font-size: 16px;
+}
+
+/*collapsible*/
+
+/* Style the button that is used to open and close the collapsible content */
+.collapsible {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .collapsible:hover {
+  background-color: #ccc;
+}
+
+.collapsible-content {
+  padding: 0 10px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+
+.collapsible:after {
+  content: '\02795'; /* Unicode character for "plus" sign (+) */
+  font-size: 13px;
+  color: white;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2796"; /* Unicode character for "minus" sign (-) */
 }
 
 /****TABLES****/

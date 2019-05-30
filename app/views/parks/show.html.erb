@@ -1,0 +1,111 @@
+</br>
+<div class="row">
+    <% if @park["designation"] != '' %>
+      <p style="font-size: 12px; margin-bottom: -15px;"><%=@park["designation"]%></p>
+    <% end %>
+    <h4><%=@park["name"]%><h4>
+    <p style="font-size: 12px; margin-top: -20px;"><%=@park["states"]%></p>
+</div>
+
+<% if !@alerts.empty? %>
+  <span class="label-green">ALERTS</span></br></br>
+  <% if !@alerts_danger.empty? %>
+    <p class="collapsible"><b style="font-size: 20px">Danger</b></p>
+    <div class="collapsible-content">
+      <% @alerts_danger.each do |alert| %>
+
+        <p class="alert-danger" style="font-size: 18px; display:inline"><%= alert["title"] %></p></br>
+        <%= alert["description"] %>
+        <% if alert["url"] != "" %>
+          <a href=alert["url"]>more info ></a>
+        <% end %>
+        </br>
+        <div id="divider" class="divider"></div>
+
+      <% end %>
+    </div>
+  <% end %>
+
+  <% if !@alerts_closure.empty? %>
+    <p class="collapsible"><b style="font-size: 20px">Park Closures</b></p>
+    <div class="collapsible-content">
+      <% @alerts_closure.each do |alert| %>
+        
+        <p class="alert-closure" style="font-size: 18px; display: inline"><%= alert["title"] %></p></br>
+        <%= alert["description"] %>
+        <% if alert["url"] != "" %>
+    
+          <a href=alert["url"]>more info ></a>
+        <% end %>
+
+        </br>
+        <div id="divider" class="divider"></div>
+        
+
+      <% end %>
+    </div>
+  <% end %>
+
+  <% if !@alerts_caution.empty? %>
+    <p class="collapsible"><b style="font-size: 20px">Caution</b></p>
+    <div class="collapsible-content">
+      <% @alerts_caution.each do |alert| %>
+        <p class="alert-caution" style="font-size: 18px; display:inline"><%= alert["title"] %></p></br>
+        <%= alert["description"] %>
+        <% if alert["url"] != "" %>
+          <a href=alert["url"]>more info ></a>
+        <% end %>
+
+        </br>
+        <div id="divider" class="divider"></div>
+
+      <% end %>
+    </div>
+  <% end %>
+  
+  <% if !@alerts_info.empty? %>
+    <p class="collapsible"><b style="font-size: 20px">Information</b></p>
+    <div class="collapsible-content">
+      <% @alerts_info.each do |alert| %>
+        <p class="alert-info" style="font-size: 18px; display:inline"><%= alert["title"] %></p></br>
+        <%= alert["description"] %>
+        <% if alert["url"] != "" %>
+          <a href=alert["url"]>more info ></a>
+        <% end %>
+
+        </br>
+        <div id="divider" class="divider"></div>
+
+      <% end %>
+    </div>
+  <% end %>
+
+<% end %>
+</br>
+<% if !@articles.empty? %>
+  <span class="label-green">ARTICLES</span></br></br>
+  <% @articles.each do |article| %>
+    <div class="card">
+      <div class="card-content">
+        <%= article["title"] %>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+    } 
+  });
+}
+</script>
