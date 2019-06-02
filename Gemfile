@@ -39,6 +39,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'materialize-sass', '0.100.2'
 gem 'simple_form', '3.5.0'
 gem 'materialize-form', '1.0.8'
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

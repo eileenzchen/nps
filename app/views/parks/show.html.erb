@@ -1,97 +1,34 @@
+<% @image = google_image(@park["fullName"]) %>
+<div style="position: relative;">
+  <% if @image.nil? %>
+  <%= image_tag 'yosemite.jpg', alt: "yosemite", class: "crop"%>
+  <% else %>
+    <%= image_tag @image, alt: @park["fullName"], class: "crop"%>
+  <% end %>
+  <div class="text-block">
+    <h5><%=@park["fullName"]%></h5>
+
+    <p style="font-size: 16px;"><%=@park["states"]%></p>
+
+  </div>
+</div>
 </br>
+
+
+
 <div class="row">
-    <% if @park["designation"] != '' %>
-      <p style="font-size: 12px; margin-bottom: -15px;"><%=@park["designation"]%></p>
-    <% end %>
-    <h4><%=@park["name"]%><h4>
-    <p style="font-size: 12px; margin-top: -20px;"><%=@park["states"]%></p>
+  <div class="col s7">
+    <%= render :partial => "alerts" %></br>
+    <%= render :partial => "events" %>
+    
+  </div>
+
+  <div class="col s5">
+    <%= render :partial => "news_releases" %></br>
+    <%= render :partial => "articles" %>
+  </div>
 </div>
 
-<% if !@alerts.empty? %>
-  <span class="label-green">ALERTS</span></br></br>
-  <% if !@alerts_danger.empty? %>
-    <p class="collapsible"><b style="font-size: 20px">Danger</b></p>
-    <div class="collapsible-content">
-      <% @alerts_danger.each do |alert| %>
-
-        <p class="alert-danger" style="font-size: 18px; display:inline"><%= alert["title"] %></p></br>
-        <%= alert["description"] %>
-        <% if alert["url"] != "" %>
-          <a href=alert["url"]>more info ></a>
-        <% end %>
-        </br>
-        <div id="divider" class="divider"></div>
-
-      <% end %>
-    </div>
-  <% end %>
-
-  <% if !@alerts_closure.empty? %>
-    <p class="collapsible"><b style="font-size: 20px">Park Closures</b></p>
-    <div class="collapsible-content">
-      <% @alerts_closure.each do |alert| %>
-        
-        <p class="alert-closure" style="font-size: 18px; display: inline"><%= alert["title"] %></p></br>
-        <%= alert["description"] %>
-        <% if alert["url"] != "" %>
-    
-          <a href=alert["url"]>more info ></a>
-        <% end %>
-
-        </br>
-        <div id="divider" class="divider"></div>
-        
-
-      <% end %>
-    </div>
-  <% end %>
-
-  <% if !@alerts_caution.empty? %>
-    <p class="collapsible"><b style="font-size: 20px">Caution</b></p>
-    <div class="collapsible-content">
-      <% @alerts_caution.each do |alert| %>
-        <p class="alert-caution" style="font-size: 18px; display:inline"><%= alert["title"] %></p></br>
-        <%= alert["description"] %>
-        <% if alert["url"] != "" %>
-          <a href=alert["url"]>more info ></a>
-        <% end %>
-
-        </br>
-        <div id="divider" class="divider"></div>
-
-      <% end %>
-    </div>
-  <% end %>
-  
-  <% if !@alerts_info.empty? %>
-    <p class="collapsible"><b style="font-size: 20px">Information</b></p>
-    <div class="collapsible-content">
-      <% @alerts_info.each do |alert| %>
-        <p class="alert-info" style="font-size: 18px; display:inline"><%= alert["title"] %></p></br>
-        <%= alert["description"] %>
-        <% if alert["url"] != "" %>
-          <a href=alert["url"]>more info ></a>
-        <% end %>
-
-        </br>
-        <div id="divider" class="divider"></div>
-
-      <% end %>
-    </div>
-  <% end %>
-
-<% end %>
-</br>
-<% if !@articles.empty? %>
-  <span class="label-green">ARTICLES</span></br></br>
-  <% @articles.each do |article| %>
-    <div class="card">
-      <div class="card-content">
-        <%= article["title"] %>
-      </div>
-    </div>
-  <% end %>
-<% end %>
 
 <script>
 var coll = document.getElementsByClassName("collapsible");

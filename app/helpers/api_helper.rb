@@ -14,12 +14,29 @@ module ApiHelper
 
   # keyword search
   def keyword_query(cond)
-    puts BASE_URL+cond+API_KEY
     request = HTTP.get(BASE_URL+cond+API_KEY)
+
     request_json = JSON.parse(request)
+
     return request_json
   end
 
+  GOOGLE_URL = "https://www.googleapis.com/customsearch/v1"
+  GOOGLE_KEY = "key=AIzaSyBfu5Ac_oAJ8qjUgRWutuA3OHzAnyg1hpM"
+  CX = "&cx=009223487904851613558:zwhhyb4vkte"
+
+  # https://www.googleapis.com/customsearch/v1?q=Acadia%20National%20Park&searchType=image&key=AIzaSyBfu5Ac_oAJ8qjUgRWutuA3OHzAnyg1hpM&cx=009223487904851613558:zwhhyb4vkte
+
+  def google_image(park)
+    url = URI::escape(GOOGLE_URL+"?q="+park+"&num=1&searchType=image&"+GOOGLE_KEY+CX)
+    request = HTTP.get(url)
+    request_json = JSON.parse(request)
+    unless !request_json["error"].nil?
+      image = request_json["items"][0]["link"]
+      return image
+    end
+    return nil
+  end
 
 
 

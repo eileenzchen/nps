@@ -5,7 +5,7 @@
       <%= link_to 'National Park Services', home_path, :class => "text-home"  %>
     </div>
 
-    <div style="float:right" class="controls col s4 pull-s1">
+    <div style="float:right" class="controls col s4 pull-s2">
       <%= form_with url: search_path, method: :get, class: "form-inline", id: "search" do %>
 
         <%= text_field_tag 'query', '', placeholder: "keyword search ...", class: "search-input" %>

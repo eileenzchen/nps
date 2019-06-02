@@ -1,0 +1,74 @@
+<% if !@alerts.empty? %>
+  <span class="label-green">ALERTS</span></br></br>
+  <% if !@alerts_danger.empty? %>
+    <p class="collapsible"><b style="font-size: 20px">Danger</b></p>
+    <div class="collapsible-content">
+      <% @alerts_danger.each do |alert| %>
+
+        <p class="alert-danger" style="font-size: 18px; display:inline"><%= alert["title"] %></p></br>
+        <%= alert["description"] %>
+        <% if alert["url"] != "" %>
+          <a href=alert["url"]>more info ></a>
+        <% end %>
+        </br>
+        <div id="divider" class="divider"></div>
+
+      <% end %>
+    </div>
+  <% end %>
+
+  <% if !@alerts_closure.empty? %>
+    <p class="collapsible"><b style="font-size: 20px">Park Closures</b></p>
+    <div class="collapsible-content">
+      <% @alerts_closure.each do |alert| %>
+        
+        <p class="alert-closure" style="font-size: 18px; display: inline"><%= alert["title"] %></p></br>
+        <%= alert["description"] %>
+        <% if alert["url"] != "" %>
+    
+          <a href=alert["url"]>more info ></a>
+        <% end %>
+
+        </br>
+        <div id="divider" class="divider"></div>
+        
+
+      <% end %>
+    </div>
+  <% end %>
+
+  <% if !@alerts_caution.empty? %>
+    <p class="collapsible"><b style="font-size: 20px">Caution</b></p>
+    <div class="collapsible-content">
+      <% @alerts_caution.each do |alert| %>
+        <p class="alert-caution" style="font-size: 18px; display:inline"><%= alert["title"] %></p></br>
+        <%= alert["description"] %>
+        <% if alert["url"] != "" %>
+          <a href=alert["url"]>more info ></a>
+        <% end %>
+
+        </br>
+        <div id="divider" class="divider"></div>
+
+      <% end %>
+    </div>
+  <% end %>
+  
+  <% if !@alerts_info.empty? %>
+    <p class="collapsible"><b style="font-size: 20px">Information</b></p>
+    <div class="collapsible-content">
+      <% @alerts_info.each do |alert| %>
+        <p class="alert-info" style="font-size: 18px; display:inline"><%= alert["title"] %></p></br>
+        <%= alert["description"] %>
+        <% if alert["url"] != "" %>
+          <a href=alert["url"]>more info ></a>
+        <% end %>
+
+        </br>
+        <div id="divider" class="divider"></div>
+
+      <% end %>
+    </div>
+  <% end %>
+
+<% end %>

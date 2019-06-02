@@ -19,12 +19,17 @@ p {
   color: #006400;
 }
 
-.crop img {
-
+.crop {
+  margin-left: -23.5%;
+  height: 25vw;
+  width: 100vw;
   overflow: hidden;
   position: relative;
   object-fit: cover; /* Do not scale the image */
+}
 
+.img-wrapper {
+  position:relative;
 }
 
 #divider {
@@ -73,6 +78,7 @@ p {
   position: relative;
   width: 100vw;
 }
+
 
 .home-heading {
   color: white;
@@ -202,6 +208,25 @@ p {
   font-size: 16px;
 }
 
+.text-block {
+  position: absolute;
+  background-color: #1a1a1a; 
+  opacity: 0.9; 
+  padding-left: 20px;
+  padding-right: 20px;
+  bottom: 20px;
+  color: white;
+}
+
+.article-img {
+  color: black;
+}
+.article-img:hover{
+  filter: brightness(80%);
+  cursor: pointer;
+}
+
+
 /*collapsible*/
 
 /* Style the button that is used to open and close the collapsible content */
@@ -296,7 +321,7 @@ th.align_center {
 }
 
 a {
-  color: #ffffff;
+  color: #1a1a1a;
 }
 
 a:hover {

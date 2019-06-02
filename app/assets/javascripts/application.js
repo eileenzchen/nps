@@ -12,6 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require moment
+//= require fullcalendar
 //= require_self
 //= require_tree .
 
@@ -42,3 +44,4 @@ $(document).ready(function() {
     }
   }
 });
+
