@@ -9,7 +9,7 @@
 
 
   <div class="event-description-section">
-    <table class="table order-details-table">
+    <table class="table details-table">
       <tbody id="insert_here">
       </tbody>
     </table>
@@ -17,3 +17,56 @@
 
 
 <% end %>
+
+<script>
+var events = <%= raw(@events_reformatted.to_json.to_s) %>
+
+
+console.log(events)
+
+$(window).load(function(){
+    
+  $('#calendar').fullCalendar({
+
+    header: {
+      left: 'prev,next today',
+      center: 'title',
+      right: 'month,agendaWeek,agendaDay'
+    },
+    editable: false,
+    eventRender: function(event, element, view) {
+      return $('<div class="event">' + '<b>' + event.title + '</b>' + '</div>');
+    },
+    events: events,
+
+    /* When a day is clicked, summarize all events on that day */
+    dayClick: function(date, allDay, jsEvent, view) {
+      $('.details-table').empty(); // Clear list of events
+      $('#calendar').fullCalendar('clientEvents', function(event) {
+        if(moment(date).format('YYYY-MM-DD') == moment(event._start).format('YYYY-MM-DD')) {
+          
+          // Add event details to table
+          $('.details-table').append('<tr><td class="o-box-name">'+event.title+'</td><td>' + event.start + '</td><td>' +event.end + '</td><td>' + event.location + '</td><td>' + event.description + '</td></tr>');
+        
+        }
+      });
+    },
+    
+    /* When event is clicked, summarize all events in that day. */
+    eventClick: function(calEvent, jsEvent, view) {
+      function insert(title, start, end, location, description){
+        $(".details-table").append('<tr><td class="o-box-name">'+event.title+'</td><td>' + event.start + '</td><td>' +event.end + '</td><td>' + event.location + '</td><td>' + event.description + '</td></tr>');
+      };
+
+      $(".details-table").empty(); // Clear list of products
+    
+      insert(calEvent.title, calEvent.start, calEvent.end, calEvent.location, calEvent.description );
+    
+    }
+  }); //end calendar
+    
+
+  // Go directly to month which contains events
+  $('#calendar').fullCalendar('gotoDate', Date.current);
+});
+</script>

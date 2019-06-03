@@ -23,7 +23,12 @@ class HomeController < ApplicationController
   end
 
   def state_query(state)
-    @parks = '/parks?state=#{state}'
+    @parks = keyword_query('/parks?state=#{state}&')
+  end
+
+  def designation_query(designation)
+    @parks = keyword_query("/parks?&")
+    @parks = @parks["data"].select(|park| park["designation"] == designation)
   end
 
 end

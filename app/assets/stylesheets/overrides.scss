@@ -7,7 +7,7 @@ html {
 }
 
 .body {
-  width: 70%;
+  width: 75%;
   align-content: center;
 }
 
@@ -66,10 +66,6 @@ p {
   position:relative;
 }
 
-.home-img {
-  // filter: brightness(70%);
-  
-}
 
 .full-width {
 
@@ -267,54 +263,6 @@ p {
   content: "\2796"; /* Unicode character for "minus" sign (-) */
 }
 
-/****TABLES****/
-.scroll tbody{
-  display:block;
-  height:200px;
-  overflow:auto;
-}
-
-thead, tbody tr {
-  display:table;
-  width:100%;
-  table-layout:fixed;
-}
-
-tr td {
-  white-space: normal;
-}
-
-table.striped > tbody > tr:nth-child(odd) {
-  background-color: #fff;
-}
-
-table.striped > tbody > tr:nth-child(even) {
-  background-color: #FFF9EB;
-}
-
-table.highlight > tbody > tr:hover {
-  background-color: #ffecc1;
-}
-
-td.align_right {
-  text-align: right;
-}
-
-td.align_center {
-  text-align: center;
-}
-
-th.align_left {
-  text-align: left;
-}
-
-th.align_right {
-  text-align: right;
-}
-
-th.align_center {
-  text-align: center;
-}
 
 .material-icons {
   color: #006400;
@@ -327,6 +275,35 @@ a {
 a:hover {
   color: #006400;
 }
+
+/**CALENDAR**/
+.fc-center h2 {
+  font-size: 30px;
+}
+
+thead {
+  border-bottom: none;
+}
+
+
+.event {
+  font-size: 12px;
+  padding: 3px !important;
+  background-color: #ebf6fc !important;
+  color: black;
+  margin-left: 3px !important;
+  margin-right: 3px !important;
+  margin-bottom: 10px !important;
+  border-radius: 5px;
+}
+
+.event:hover {
+  cursor: pointer;
+  background-color: #cae8f8 !important;
+}
+
+
+
 
 
 /****TABS****/
@@ -359,18 +336,20 @@ a:hover {
 }
 
 /****BUTTONS****/
-.btn {
+
+.fc-button {
   background-color: #006400;
   color: #fff;
 }
 
-.btn:hover {
+.fc-button:hover {
   background-color: #004200;
   color: #fff;
 }
 
-.btn {
-  text-transform: none;
+.fc-button:active {
+  background-color: #004200;
+  color: #fff;
 }
 
 /****FORMS****/
