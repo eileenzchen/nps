@@ -1,5 +1,8 @@
 <% if !@events.empty? %>
-  <span class="label-green">EVENTS</span></br></br>
+  <span class="label-green">EVENTS</span> 
+  <i>&nbsp;&nbsp;Click on day or event</i>
+  
+  </br></br>
 
 
   <div class="calendar-section">
@@ -7,7 +10,7 @@
   </div> 
 
 
-
+  </br>
   <div class="event-description-section">
     <table class="table details-table">
       <tbody id="insert_here">
@@ -40,27 +43,66 @@ $(window).load(function(){
     events: events,
 
     /* When a day is clicked, summarize all events on that day */
-    dayClick: function(date, allDay, jsEvent, view) {
+    dayClick: function(date, jsEvent, view) {
       $('.details-table').empty(); // Clear list of events
       $('#calendar').fullCalendar('clientEvents', function(event) {
-        if(moment(date).format('YYYY-MM-DD') == moment(event._start).format('YYYY-MM-DD')) {
-          
+        var start = event.start;
+        var end = event.end || start;
+        if(moment(date).format('YYYY-MM-DD') == start.format('YYYY-MM-DD')) {
+
           // Add event details to table
-          $('.details-table').append('<tr><td class="o-box-name">'+event.title+'</td><td>' + event.start + '</td><td>' +event.end + '</td><td>' + event.location + '</td><td>' + event.description + '</td></tr>');
+          var html = "<div class='card'><div class='card-content'>"+"<b>"+event.title+'</b></br><p><b>Dates:</b>&nbsp;' + start.format('MM/DD/YY') + ' - ' + end.format('MM/DD/YY') + '</p>';
         
+          var i;
+          for (i = 0; i < event.times.length; i++) { 
+            if (i == 0) {
+              html += '<p><b>Times:</b>&nbsp;' + event.times[i]["timestart"] + ' - ' + event.times[i]["timeend"] + '</br>';
+            }
+            else{
+              html += '<p><b style="opacity: 0">Times:</b>&nbsp;' + event.times[i]["timestart"] + ' - ' + event.times[i]["timeend"] + '</br>';
+            }
+          }
+
+          html += '</p><p><b>Location:</b>&nbsp;' + event.location + '</p><p><b>Description:</b>&nbsp;' + event.description + '</p></div></div>';
+          
+          $(".details-table").append(html);
+
+          
         }
       });
     },
     
     /* When event is clicked, summarize all events in that day. */
-    eventClick: function(calEvent, jsEvent, view) {
-      function insert(title, start, end, location, description){
-        $(".details-table").append('<tr><td class="o-box-name">'+event.title+'</td><td>' + event.start + '</td><td>' +event.end + '</td><td>' + event.location + '</td><td>' + event.description + '</td></tr>');
+    eventClick: function(data, jsEvent, view) {
+      
+
+      function insert(title, start, enddate, times, location, description){
+
+        var html = "<div class='card'><div class='card-content'>"+"<b>"+title+'</b></br><p><b>Dates:</b>&nbsp;' + start + ' - ' + enddate + '</p>';
+        
+        var i;
+        for (i = 0; i < times.length; i++) { 
+          if (i == 0) {
+            html += '<p><b>Times:</b>&nbsp;' + times[i]["timestart"] + ' - ' + times[i]["timeend"] + '</br>';
+          }
+          else{
+            html += '<p><b style="opacity: 0">Times:</b>&nbsp;' + times[i]["timestart"] + ' - ' + times[i]["timeend"] + '</br>';
+          }
+        }
+
+        html += '</p><p><b>Location:</b>&nbsp;' + location + '</p><p><b>Description:</b>&nbsp;' + description + '</p></div></div>';
+        
+        $(".details-table").append(html);
+
+
       };
 
       $(".details-table").empty(); // Clear list of products
+
+      var start = moment(data.start);
+      var end = data.end || start;
     
-      insert(calEvent.title, calEvent.start, calEvent.end, calEvent.location, calEvent.description );
+      insert(data.title, start.format('MM/DD/YY'), end.format('MM/DD/YY'), data.times, data.location, data.description );
     
     }
   }); //end calendar
