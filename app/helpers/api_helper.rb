@@ -14,6 +14,7 @@ module ApiHelper
 
   # keyword search
   def keyword_query(cond)
+    puts BASE_URL+cond+API_KEY
     request = HTTP.get(BASE_URL+cond+API_KEY)
 
     request_json = JSON.parse(request)

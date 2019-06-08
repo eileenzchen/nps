@@ -69,8 +69,8 @@ p {
 
 .full-width {
 
-	margin-left: -11.3%;
-	// margin-right: -16.66667%;
+	margin-left: -21.9%;
+	//margin-right: -16.66667%;
   position: relative;
   width: 100vw;
 }
@@ -98,6 +98,43 @@ p {
 .home-img-links {
   height: 300px;
   width: auto;
+}
+
+.text-block-state {
+  position: absolute;
+  background-color: rgba(26, 26, 26 , 0.9); 
+  padding-left: 20px;
+  padding-right: 20px;
+  bottom: 200px;
+  left: 125px;
+  color: white;
+}
+
+.text-block-park {
+  position: absolute;
+  background-color: rgba(26, 26, 26 , 0.9);  
+  padding-left: 20px;
+  padding-right: 20px;
+  bottom: 200px;
+  left: 25vw;
+  color: white;
+}
+
+.text-block-designation {
+  position: absolute;
+  background-color: rgba(26, 26, 26 , 0.9); 
+  padding-left: 20px;
+  padding-right: 20px;
+  bottom: 200px;
+  left: 65vw;
+  color: white;
+}
+
+select {
+  display:block;
+  background-color: rgba(0, 100, 0, 1.0);
+  color: white;
+  font-size: 14px;
 }
 
 /****ABOUT****/
@@ -239,7 +276,7 @@ p {
 }
 
 /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-.active, .collapsible:hover {
+#alerts .active, .collapsible:hover {
   background-color: #ccc;
 }
 
@@ -259,7 +296,7 @@ p {
   margin-left: 5px;
 }
 
-.active:after {
+#alerts .active:after {
   content: "\2796"; /* Unicode character for "minus" sign (-) */
 }
 
@@ -333,23 +370,6 @@ thead {
 /*****FORM ACTIONS****/
 .form-actions {
   margin-bottom: 10px;
-}
-
-/****BUTTONS****/
-
-.fc-button {
-  background-color: #006400;
-  color: #fff;
-}
-
-.fc-button:hover {
-  background-color: #004200;
-  color: #fff;
-}
-
-.fc-button:active {
-  background-color: #004200;
-  color: #fff;
 }
 
 /****FORMS****/

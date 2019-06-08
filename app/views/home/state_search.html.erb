@@ -1,0 +1,37 @@
+
+<% @image = google_image(@state_fullname) %>
+<div style="position: relative;">
+  <% if @image.nil? %>
+    <%= image_tag 'yosemite.jpg', alt: "yosemite", class: "crop"%>
+  <% else %>
+    <%= image_tag @image, class: "crop"%>
+  <% end %>
+  <div class="text-block">
+    <h5><%=@state_fullname%></h5>
+
+  </div>
+</div>
+</br>
+
+<% unless @parks["total"] == '0' %>
+  <strong class="search-output-category">PARKS</strong>
+  </br></br>
+  <% for park in @parks["data"] do %>
+    <div class="row">
+      <div class="card col s8">
+        <div class="card-content">
+          <% @park_code = park["parkCode"] %>
+          
+          <h5><%= link_to park["fullName"], parks_path(park_code: @park_code), class: "search-output-link"%></h5>
+          
+          <div id="search-output-states"><%= park["states"] %></div></br>
+          <%= park["description"]%>        
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <p class="smtext">&nbsp;</p>
+<% end %>
+
+

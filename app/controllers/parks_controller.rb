@@ -5,7 +5,13 @@ class ParksController < ApplicationController
   include ApiHelper
 
   def show
+    puts "hereeee"
+    puts params
+    
     @park_code = params[:park_code]
+    if @park_code.nil?
+      @park_code = params[:parkCode]
+    end
     @park = keyword_query("/parks?parkCode=#{@park_code}&")["data"][0]
     @alerts = keyword_query("/alerts?parkCode=#{@park_code}&")["data"]
     @alerts_closure = @alerts.select{|alert| alert["category"] == "Park Closure"}
@@ -43,6 +49,7 @@ class ParksController < ApplicationController
           arr["times"] = event["times"]
           arr["description"] = event["description"]
           arr["allDay"] = event["isallday"]
+        
           @events_reformatted.push(arr)
         end
       end

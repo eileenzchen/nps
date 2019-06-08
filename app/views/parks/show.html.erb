@@ -1,7 +1,7 @@
 <% @image = google_image(@park["fullName"]) %>
 <div style="position: relative;">
   <% if @image.nil? %>
-  <%= image_tag 'yosemite.jpg', alt: "yosemite", class: "crop"%>
+    <%= image_tag 'yosemite.jpg', alt: "yosemite", class: "crop"%>
   <% else %>
     <%= image_tag @image, alt: @park["fullName"], class: "crop"%>
   <% end %>
