@@ -1,36 +1,40 @@
 <div class="row">
   <div style="position: relative;">
   
-    <%= image_tag 'yosemite.jpg', alt: "yosemite", class: "full-width"%>
+    <%= image_tag 'yosemite.jpg', alt: "yosemite", class: "full-width home-img"%>
   </div>
+
+  <div class="text-block-home">
+    <p style="font-size: 18px; line-height: 0px;">Life is not meant to be lived in one place.</p>
+    <p style="font-size: 32px; line-height: 0px">PLAN YOUR NEXT ADVENTURE</p>
+  </div>
+  <div class="text-block-park">
+
+
+    <p><%= render :partial => "parks_dropdown" %></p>
+    <p style="line-height: 0px">&nbsp;</p>
+
+  </div>
+
   <div class="text-block-state">
 
-    <p style="font-size: 16px;">Filter by state</p>
     <p><%= form_with url: state_search_path, method: :get, class: "form-inline" do %>
 
       <%= select_tag "state", options_for_select(@states_list), prompt: "Select a state"%>
     
     <% end %></p>
   
-    <p style="line-height: 0px">&nbsp</p>
+    <p style="line-height: 0px">&nbsp;</p>
   </div>
-  <div class="text-block-park">
 
-    <p style="font-size: 16px;">Filter by park</p>
-
-    <p><%= render :partial => "parks_dropdown" %></p>
-    <p style="line-height: 0px">&nbsp</p>
-
-  </div>
   <div class="text-block-designation">
 
-    <p style="font-size: 16px;">Filter by designation</p>
     <p><%= form_with url: desig_search_path, method: :get, class: "form-inline" do %>
 
       <%= select_tag "desig", options_for_select(@desig_list), prompt: "Select a designation" %>
     
     <% end %></p>
-    <p style="line-height: 0px">&nbsp</p>
+    <p style="line-height: 0px">&nbsp;</p>
 
   </div>
 </div>

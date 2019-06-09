@@ -1,0 +1,16 @@
+<% if !@campgrounds.empty? %>
+    <span class="label-green">CAMPGROUNDS</span></br></br>
+    <%= link_to "Regulations", @campgrounds[0]["regulationsurl"], style: "text-decoration: underline; color: #006400" %>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <%= link_to "Directions & Transportation", @campgrounds[0]["directionsUrl"], style: "text-decoration: underline; color: #006400" %>
+    </br>
+    <% @campgrounds.each do |vc| %>
+      <p style="font-size: 3px;">&nbsp;</p>
+      <span style="font-size: 18px"><b><%=vc["name"]%></b></span></br>
+      <%= vc["description"] %></br>
+      <p style="font-size: 3px;">&nbsp;</p>
+      <b>Directions</b></br>
+      <%= vc["directionsoverview"] %></br>
+      <div class="divider"></div>
+    <% end %>
+  <% end %>

@@ -7,9 +7,9 @@
       <% @alerts_danger.each do |alert| %>
 
         <p class="alert-danger" style="font-size: 18px; display:inline"><%= alert["title"] %></p></br>
-        <%= alert["description"] %>
+        <%= alert["description"] %></br>
         <% if alert["url"] != "" %>
-          <a href=alert["url"]>more info ></a>
+          <%= link_to "more info >", alert["url"], style: "color: #006400"%>
         <% end %>
         </br>
         <div id="divider" class="divider"></div>
@@ -24,10 +24,10 @@
       <% @alerts_closure.each do |alert| %>
         
         <p class="alert-closure" style="font-size: 18px; display: inline"><%= alert["title"] %></p></br>
-        <%= alert["description"] %>
+        <%= alert["description"] %></br>
         <% if alert["url"] != "" %>
     
-          <a href=alert["url"]>more info ></a>
+          <%= link_to "more info >", alert["url"], style: "color: #006400"%>
         <% end %>
 
         </br>
@@ -43,9 +43,9 @@
     <div class="collapsible-content">
       <% @alerts_caution.each do |alert| %>
         <p class="alert-caution" style="font-size: 18px; display:inline"><%= alert["title"] %></p></br>
-        <%= alert["description"] %>
+        <%= alert["description"] %></br>
         <% if alert["url"] != "" %>
-          <a href=alert["url"]>more info ></a>
+          <%= link_to "more info >", alert["url"], style: "color: #006400"%>
         <% end %>
 
         </br>
@@ -60,9 +60,9 @@
     <div class="collapsible-content">
       <% @alerts_info.each do |alert| %>
         <p class="alert-info" style="font-size: 18px; display:inline"><%= alert["title"] %></p></br>
-        <%= alert["description"] %>
+        <%= alert["description"] %></br>
         <% if alert["url"] != "" %>
-          <a href=alert["url"]>more info ></a>
+          <%= link_to "more info >", alert["url"], style: "color: #006400"%>
         <% end %>
 
         </br>

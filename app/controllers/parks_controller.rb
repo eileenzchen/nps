@@ -5,8 +5,6 @@ class ParksController < ApplicationController
   include ApiHelper
 
   def show
-    puts "hereeee"
-    puts params
     
     @park_code = params[:park_code]
     if @park_code.nil?
@@ -59,6 +57,10 @@ class ParksController < ApplicationController
 
     @news_releases = keyword_query("/newsreleases?parkCode=#{@park_code}&")["data"]
     @news_releases = @news_releases.select{|nr| nr["image"]["url"] != "" && nr["url"] != ""}.take(3)
+
+    @visitor_centers = keyword_query("/visitorcenters?parkCode=#{@park_code}&")["data"]
+
+    @campgrounds = keyword_query("/campgrounds?parkCode=#{@park_code}&")["data"]
     
   end
 

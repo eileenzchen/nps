@@ -1,0 +1,16 @@
+<% if !@visitor_centers.empty? %>
+    <span class="label-green">VISITOR CENTERS</span></br></br>
+    <%= link_to "Operating Hours & Seasons", @visitor_centers[0]["url"], style: "text-decoration: underline; color: #006400" %>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <%= link_to "Directions & Transportation", @visitor_centers[0]["directionsUrl"], style: "text-decoration: underline; color: #006400" %>
+    </br>
+    <% @visitor_centers.each do |vc| %>
+      <p style="font-size: 3px;">&nbsp;</p>
+      <span style="font-size: 18px"><b><%=vc["name"]%></b></span></br>
+      <%= vc["description"] %></br>
+      <p style="font-size: 3px;">&nbsp;</p>
+      <b>Directions</b></br>
+      <%= vc["directionsInfo"] %></br>
+      <div class="divider"></div>
+    <% end %>
+  <% end %>
