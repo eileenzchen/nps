@@ -36,6 +36,35 @@ p {
   margin-top: 5px;
   margin-bottom: 15px;
 }
+
+.icon {
+  margin-bottom: -3px;
+  margin-right: -3px;
+}
+
+.lesson-plans-card{
+  display:block !important;
+  height: 400px !important;
+  overflow:auto !important;
+}
+
+.places-card-outer {
+  height: 450px !important;
+}
+.places-card{
+  display:block !important;
+  height: 200px;
+  overflow:auto !important;
+}
+
+.slider .slides li {
+  overflow:visible !important;
+}
+
+// .places-card-image {
+//   max-height: 200px;
+// }
+
 /****TOP BAR****/
 #top-bar {
   background-color: #1a1a1a;
@@ -254,7 +283,7 @@ select {
 
 .label-green {
   color: white;
-  padding: 8px;
+  padding: 12px;
   background-color: #006400;
   font-size: 16px;
 }
@@ -358,7 +387,12 @@ thead {
 }
 
 
+/****LEARN PAGE****/ 
+/////image slider
 
+li.indicator-item.active {
+  background-color: #006400 !important;
+}
 
 
 /****TABS****/

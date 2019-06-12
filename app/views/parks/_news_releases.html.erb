@@ -1,20 +1,21 @@
 <% if !@news_releases.empty? %>
-    <span class="label-green">NEWS RELEASES</span></br></br>
-    <% @news_releases.each do |nr| %>
-      <div class="card">
-        <div class="card-image">
-          <div class="article-img">
-            <%= link_to image_tag(nr["image"]["url"]), nr["url"], class: "responsive-img"  %>
-          </div>
-        </div> <!--end card image-->
-   
-        <div class="card-content">
-          <span class="card-title"><b><%= link_to nr["title"], nr["url"] %></b></span>
-          <%= nr["abstract"] %>
+  <span class="label-green">NEWS RELEASES&nbsp;&nbsp;
+  <img src="https://raw.githubusercontent.com/nationalparkservice/symbol-library/gh-pages/src/standalone/newspaper-white-22.svg?sanitize=true" class="icon">
+  </span></br></br>
+  <% @news_releases.each do |nr| %>
+    <div class="card">
+      <div class="card-image">
+        <div class="article-img">
+          <%= link_to image_tag(nr["image"]["url"]), nr["url"], class: "responsive-img"  %>
         </div>
-
-        
-        
+      </div> <!--end card image-->
+  
+      <div class="card-content">
+        <span class="card-title"><b><%= link_to nr["title"], nr["url"] %></b></span>
+        <%= nr["abstract"] %>
       </div>
-    <% end %>
+      
+    </div>
   <% end %>
+  </br>
+<% end %>

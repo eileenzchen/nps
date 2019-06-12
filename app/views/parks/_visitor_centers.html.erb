@@ -1,5 +1,7 @@
 <% if !@visitor_centers.empty? %>
-    <span class="label-green">VISITOR CENTERS</span></br></br>
+    <span class="label-green">VISITOR CENTERS&nbsp;&nbsp;
+    <img src="https://raw.githubusercontent.com/nationalparkservice/symbol-library/gh-pages/src/standalone/ranger-station-white-22.svg?sanitize=true" class="icon">
+    </span></br></br>
     <%= link_to "Operating Hours & Seasons", @visitor_centers[0]["url"], style: "text-decoration: underline; color: #006400" %>
     &nbsp;&nbsp;&nbsp;&nbsp;
     <%= link_to "Directions & Transportation", @visitor_centers[0]["directionsUrl"], style: "text-decoration: underline; color: #006400" %>
@@ -8,9 +10,13 @@
       <p style="font-size: 3px;">&nbsp;</p>
       <span style="font-size: 18px"><b><%=vc["name"]%></b></span></br>
       <%= vc["description"] %></br>
-      <p style="font-size: 3px;">&nbsp;</p>
-      <b>Directions</b></br>
-      <%= vc["directionsInfo"] %></br>
+      <% if !vc["directionsInfo"] == "" %>
+        <p style="font-size: 3px;">&nbsp;</p>
+        <b>Directions</b></br>
+        <%= vc["directionsInfo"] %></br>
+      <% end %>
       <div class="divider"></div>
+      
     <% end %>
+    </br></br>
   <% end %>

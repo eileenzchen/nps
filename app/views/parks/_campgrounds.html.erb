@@ -1,5 +1,7 @@
 <% if !@campgrounds.empty? %>
-    <span class="label-green">CAMPGROUNDS</span></br></br>
+    <span class="label-green">CAMPGROUNDS&nbsp;&nbsp;
+    <img src="https://raw.githubusercontent.com/nationalparkservice/symbol-library/gh-pages/src/standalone/campground-white-22.svg?sanitize=true", class="icon" >
+    </span></br></br>
     <%= link_to "Regulations", @campgrounds[0]["regulationsurl"], style: "text-decoration: underline; color: #006400" %>
     &nbsp;&nbsp;&nbsp;&nbsp;
     <%= link_to "Directions & Transportation", @campgrounds[0]["directionsUrl"], style: "text-decoration: underline; color: #006400" %>
@@ -8,9 +10,11 @@
       <p style="font-size: 3px;">&nbsp;</p>
       <span style="font-size: 18px"><b><%=vc["name"]%></b></span></br>
       <%= vc["description"] %></br>
-      <p style="font-size: 3px;">&nbsp;</p>
-      <b>Directions</b></br>
-      <%= vc["directionsoverview"] %></br>
+      <% if !vc["directionsoverview"] == "" %>
+        <p style="font-size: 3px;">&nbsp;</p>
+        <b>Directions</b></br>
+        <%= vc["directionsoverview"] %></br>
+      <% end %>
       <div class="divider"></div>
     <% end %>
   <% end %>

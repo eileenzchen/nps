@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   # set route for a specific park
   get 'parks', to: 'parks#show', as: :parks
+  get 'parks/learn', to: 'parks#learn', as: :learn
 
   # Set the root url
   root :to => 'home#home'

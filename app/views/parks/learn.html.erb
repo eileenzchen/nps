@@ -1,0 +1,134 @@
+<% @image = google_image(@park["fullName"]) %>
+<div style="position: relative;">
+  <% if @image.nil? %>
+    <%= image_tag 'yosemite.jpg', alt: "yosemite", class: "crop"%>
+  <% else %>
+    <%= image_tag @image, alt: @park["fullName"], class: "crop"%>
+  <% end %>
+  <a href="javascript:history.back()">
+  <div class="text-block">
+    <h5><%=@park["fullName"]%></h5>
+
+    <p style="font-size: 16px;"><%=@park["states"]%></p>
+
+  </div></a>
+</div>
+</br>
+
+<% unless @lesson_plans.empty? %>
+  <div class="row">
+    <div class="col s12">
+      <span style="margin-bottom: -10px" class="label-green">LESSON PLANS&nbsp;&nbsp;
+      <%= image_tag "lesson-plan.svg", class: "icon", style: "width: 22px; height: auto" %>
+      </span>
+    </div>
+  </div>
+
+    
+  <% @lesson_plans.each_with_index do |lp, i| %>
+    <% if i == 0 || (i+1)%3 == 0 %>
+      <div class="row">
+    <% end %>
+    <div class="col s4">
+      <div class="card medium">
+        <div class="card-content lesson-plans-card">
+          
+          <b style="font-size: 16px;"><%= lp["title"]%></b></br>
+          <p style="font-size: 5px">&nbsp;</p>
+          <div style="font-size: 14px;">
+            <b>Grade Level: </b><%= lp["gradelevel"]%></br>
+            <b>Subject: </b><%= lp["subject"]%></br>
+            <b>Objective(s): </b></br><%= lp["questionobjective"]%></br>
+            <b>Duration: </b><%= lp["duration"]%></br>
+            <%= link_to "learn more >", lp["url"], style: "color: #006500"%>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    <% if (i+1)%3 == 0 %>
+      </div>
+    <% end %>
+    
+  <% end %>
+  </div>
+
+
+<% end %>
+
+<% unless @people.empty? %>
+  <div class="row">
+    <div class="col s12">
+      <span style="margin-bottom: -10px" class="label-green">HISTORICAL PEOPLE&nbsp;&nbsp;
+      <%= image_tag "history.svg", class: "icon", style: "width: 22px; height: auto" %>
+      </span>
+    </div>
+  </div>
+  <div class="row">
+   <div class="col s6">
+   
+      <div class="slider"> 
+        <ul class="slides">
+          <% @people.each do |p| %>
+            <li>
+              <%= image_tag p["listingimage"]["url"]%>
+              <div class="caption right-align" style="color:black; padding-left: 10px; padding-right: 10px; margin-top: -50px; margin-left: 100%; text-align: left">
+                <h6><b><%= p["title"]%></b></h6>
+                <p class="black-text" style="font-size: 14px"><%= p["listingdescription"] %></p>
+              </div>
+            </li>
+          <% end %>
+          
+        </ul>
+      </div>
+    </div>
+
+
+  </div>
+
+<% end %>
+
+<% unless @places.empty? %>
+  <div class="row">
+    <div class="col s12">
+      <span style="margin-bottom: -10px" class="label-green">HISTORICAL PLACES&nbsp;&nbsp;
+      <%= image_tag "location.svg", class: "icon", style: "width: 22px; height: auto" %>
+      </span>
+    </div>
+  </div>    
+
+  <% @places.each_with_index do |place, i| %>
+    <% if i == 0 || (i+1)%3 == 0 %>
+      <div class="row">
+    <% end %>
+    <div class="col s4">
+      <div class="card places-card-outer">
+        <div class="card-image">
+          <div class="article-img places-card-image">
+            <%= link_to image_tag(place["listingimage"]["url"]), place["url"]%>
+          </div>
+        </div>
+  
+        <div class="card-content places-card">
+          <span class="card-title" style="font-size: 20px; margin-top: -10px;"><b><%= link_to place["title"], place["url"]%></b></span>
+          <%= place["listingdescription"] %>
+        </div>
+      </div>
+    </div>
+    <% if (i+1)%3 == 0 %>
+      </div>
+    <% end %>
+  <% end %>
+  </div>
+
+<% end %>
+
+<script>
+  $(document).ready(function(){
+    $('.slider').slider({
+      height: 600,
+      interval: 15000,
+    });
+  });
+      
+</script>

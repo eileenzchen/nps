@@ -5,12 +5,14 @@
   <% else %>
     <%= image_tag @image, alt: @park["fullName"], class: "crop"%>
   <% end %>
+  <a href="#">
   <div class="text-block">
     <h5><%=@park["fullName"]%></h5>
 
     <p style="font-size: 16px;"><%=@park["states"]%></p>
 
-  </div>
+  </div></a>
+
 </div>
 </br>
 
@@ -18,14 +20,17 @@
 
 <div class="row">
   <div class="col s8">
-    <%= render :partial => "alerts" %></br>
-    <%= render :partial => "events" %></br>
-    <%= render :partial => "visitor_centers" %></br>
+    <%= render :partial => "learn_about_park" %>
+    <%= render :partial => "alerts" %>
+    <%= render :partial => "map" %>
+    <%= render :partial => "events" %>
+    <%= render :partial => "visitor_centers" %>
     <%= render :partial => "campgrounds" %>
+
   </div>
 
   <div class="col s4">
-    <%= render :partial => "news_releases" %></br>
+    <%= render :partial => "news_releases" %>
     <%= render :partial => "articles" %>
   </div>
 </div>

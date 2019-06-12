@@ -1,5 +1,7 @@
 <% if !@articles.empty? %>
-    <span class="label-green">ARTICLES</span></br></br>
+    <span class="label-green">ARTICLES&nbsp;&nbsp;
+    <%= image_tag "article.svg", class: "icon", style: "width: 22px; height: auto" %>
+    </span></br></br>
     
     <% @articles.each do |article| %>
       <div class="card">
@@ -13,8 +15,6 @@
           <span class="card-title"><b><%= link_to article["title"], article["url"]%></b></span>
           <%= article["listingdescription"] %>
         </div>
-
-        
         
       </div>
     <% end %>

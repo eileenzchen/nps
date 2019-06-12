@@ -1,0 +1,34 @@
+<!--api_key=AIzaSyAJPS5_7vJDIXDeQEBGMS4ZLGzKnJut2VA-->
+
+<span class="label-green">MAP&nbsp;&nbsp;
+  <img src="https://raw.githubusercontent.com/nationalparkservice/symbol-library/gh-pages/src/standalone/maps-white-22.svg?sanitize=true", class="icon" >
+</span>
+</br></br>
+
+<% latlong = @park["latLong"] %>
+<% latlong += "," %>
+<% lat1_markerstring = "lat:" %>
+<% lat2_markerstring = "," %>
+
+<% lat = latlong[/#{lat1_markerstring}(.*?)#{lat2_markerstring}/m, 1] %>
+
+<% long1_markerstring = "long:" %>
+<% long2_markerstring = "," %>
+
+<% long = latlong[/#{long1_markerstring}(.*?)#{long2_markerstring}/m, 1] %>
+
+<% @source = "https://www.google.com/maps/embed/v1/place?key=AIzaSyAJPS5_7vJDIXDeQEBGMS4ZLGzKnJut2VA&q=#{lat},#{long}"%>
+<div class="video-container">
+  <iframe id="iframe">
+    frameborder="0" style="border:0"
+    src="#" allowfullscreen>
+  </iframe>
+</div>
+
+</br></br>
+
+<script>
+  var source_js = "<%=@source%>";
+  source_js = source_js.replace(/&amp;/g, '&');
+  $("#iframe").attr("src", source_js);
+</script>

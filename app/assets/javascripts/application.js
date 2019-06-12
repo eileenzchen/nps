@@ -11,11 +11,14 @@
 // about supported directives.
 //
 //= require jquery
+//= require rails-ujs
 //= require jquery_ujs
 //= require moment
 //= require fullcalendar
 //= require_self
 //= require_tree .
+
+// @import "materialize";
 
 
 // Sticky footer js

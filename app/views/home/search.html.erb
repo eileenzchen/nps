@@ -14,14 +14,52 @@
           
           <h5><%= link_to park["fullName"], parks_path(park_code: @park_code), class: "search-output-link"%></h5>
           
-          <div id="search-output-states"><%= park["states"] %></div></br>
+          <div id="search-output-states"><%= park["states"] %></div>
           <%= park["description"]%>        
         </div>
       </div>
     </div>
   <% end %>
 
-  <p class="smtext">&nbsp;</p>
+<% end %>
+
+<% unless @alerts["total"] == '0' %>
+  <strong class="search-output-category">ALERTS</strong>
+  <%= "(#{@alerts["total"]} results)" %>
+  </br></br>
+  <% for alert in @alerts["data"] do %>
+    <div class="row">
+      <div class="card col s8">
+        <div class="card-content">
+          <b><%= alert["category"] %></b></br>
+          
+          <h5><%= link_to alert["title"], alert["url"], class: "search-output-link"%></h5>
+      
+          <%= alert["description"]%>        
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+<% end %>
+
+<% unless @articles["total"] == '0' %>
+  <strong class="search-output-category">ARTICLES</strong>
+  <%= "(#{@articles["total"]} results)" %>
+  </br></br>
+  <% for article in @articles["data"] do %>
+    <div class="row">
+      <div class="card col s8">
+        <div class="card-content">
+          
+          <h5><%= link_to article["title"], article["url"], class: "search-output-link"%></h5>
+          
+          <%= article["listingdescription"]%>        
+        </div>
+      </div>
+    </div>
+  <% end %>
+
 <% end %>
 
 

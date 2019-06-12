@@ -64,4 +64,15 @@ class ParksController < ApplicationController
     
   end
 
+  def learn
+    @park_code = params[:park_code]
+    if @park_code.nil?
+      @park_code = params[:parkCode]
+    end
+    @park = keyword_query("/parks?parkCode=#{@park_code}&")["data"][0]
+    @lesson_plans = keyword_query("/lessonplans?parkCode=#{@park_code}&")["data"]
+    @people = keyword_query("/people?parkCode=#{@park_code}&")["data"]
+    @places = keyword_query("/places?parkCode=#{@park_code}&")["data"]
+  end
+
 end
