@@ -1,11 +1,13 @@
 </br>
+<div class="row">
 <p style="font-size: 20px">Search result for term <em>'<%= @query %>'</em> resulted in <%= pluralize(@total_hits, 'result') %></p>
-<p class="supertiny">&nbsp;</p>
+</div>
 
 <% unless @parks["total"] == '0' %>
-  <strong class="search-output-category">PARKS</strong>
+<div class="row">
+  <strong class="label-green">PARKS</strong>
   <%= "(#{@parks["total"]} results)" %>
-  </br></br>
+</div>
   <% for park in @parks["data"] do %>
     <div class="row">
       <div class="card col s8">
@@ -24,9 +26,10 @@
 <% end %>
 
 <% unless @alerts["total"] == '0' %>
-  <strong class="search-output-category">ALERTS</strong>
+<div class="row">
+  <strong class="label-green">ALERTS</strong>
   <%= "(#{@alerts["total"]} results)" %>
-  </br></br>
+</div>
   <% for alert in @alerts["data"] do %>
     <div class="row">
       <div class="card col s8">
@@ -44,9 +47,10 @@
 <% end %>
 
 <% unless @articles["total"] == '0' %>
-  <strong class="search-output-category">ARTICLES</strong>
+<div class="row">
+  <strong class="label-green">ARTICLES</strong>
   <%= "(#{@articles["total"]} results)" %>
-  </br></br>
+</div>
   <% for article in @articles["data"] do %>
     <div class="row">
       <div class="card col s8">
