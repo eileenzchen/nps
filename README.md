@@ -1,24 +1,22 @@
-# README
+Capital One Software Engineering Summit Coding Challenge: National Park Service
+---
+This is my solution to a web app for Capital One's Software Engineering Summit coding challenge. Requirements for the project can be found on the [Mindsumo site](https://www.mindsumo.com/contests/national-park-api). Everything was designed and implemented by me.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+**The web app can be found on Heroku [here](https://peaceful-harbor-33144.herokuapp.com).** 
 
-Things you may want to cover:
+### Key features
+- Use of National Park Service API, Google Custom Search API (for relevant Google images), Google Maps API
+- Filtering park name, state, or designation, and keyword search for easy finding of parks and information
+- Separate page for educational information about each park
+- Interactable calendar of events
+- Use of NPS Symbol Library [on github](https://github.com/nationalparkservice/symbol-library)
 
-* Ruby version
+### Set up
 
-* System dependencies
+*Make sure to have Ruby and Rails 5 installed*
 
-* Configuration
+To set this up, clone this repository, run the `bundle install` command to ensure you have all the needed gems.
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+#### Built with
+- [Ruby on Rails](https://rubyonrails.org/) - web framework
+- [Materialize](https://materializecss.com/) - CSS framework
