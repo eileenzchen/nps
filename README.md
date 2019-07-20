@@ -1,6 +1,6 @@
-Capital One Software Engineering Summit Coding Challenge: National Park Service
+Capital One Software Engineering Summit Coding Challenge: National Park Service (Winner)
 ---
-This is my solution to a web app for Capital One's Software Engineering Summit coding challenge. Requirements for the project can be found on the [Mindsumo site](https://www.mindsumo.com/contests/national-park-api). Everything was designed and implemented by me.
+This is my solution to a web app for Capital One's Software Engineering Summit coding challenge which resulted in acceptance to the program. Requirements for the project can be found on the [Mindsumo site](https://www.mindsumo.com/contests/national-park-api). Everything was designed and implemented by me.
 
 **The web app can be found on Heroku [here](https://peaceful-harbor-33144.herokuapp.com).** 
 
