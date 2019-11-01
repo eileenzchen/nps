@@ -41,7 +41,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 gem 'materialize-sass', '0.100.2'
-gem 'simple_form', '3.5.0'
+gem 'simple_form', '5.0.0'
 gem 'materialize-form', '1.0.8'
 
 
